@@ -4,17 +4,17 @@ html {
 
   @font-face {
     font-family: Bungee-Shade;
-    src: url(/web/BungeeShade-Regular.ttf);
+    src: url(fuentes/BungeeShade-Regular.ttf);
   }
   
   @font-face {
     font-family: raleway;
-    src: url(/web/fuentes/Raleway-Regular.ttf);
+    src: url(fuentes/Raleway-Regular.ttf);
   }
   
   @font-face {
     font-family: pacifico;
-    src: url(/web/fuentes/pacifico/Pacifico.ttf);
+    src: url(fuentes/pacifico/Pacifico.ttf);
   }
 
 /*-------------------------------------------------------------------*/
