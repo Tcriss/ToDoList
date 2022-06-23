@@ -42,6 +42,7 @@ body {
     text-align: center;
     color: darkslategrey;
     font-family: pacifico;
+    transition: color 500ms;
   }
 
   .logo{
@@ -60,6 +61,7 @@ body {
     background-color: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 10px;
+    transition: background-color 500ms;
   }
   
   .search {
@@ -80,6 +82,11 @@ body {
     width: 90%;
     border-radius: 10px 0px 0px 10px;
   }
+
+  i{
+    color: black;
+    transition: all 500ms;
+  }
   
   .li-container {
     background-color: white;
@@ -90,20 +97,35 @@ body {
   
   ul {
     padding: 0;
+    overflow-y: scroll;
+    transition: background-color 500ms;
+  }
+
+  ul::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  ul::-webkit-scrollbar-thumb{
+    background-color: #a4a4a4;
+    border-radius: 5px;
   }
   
   li {
+    width: 100%;
     list-style: none;
     background-color: lightgray;
     border-radius: 10px;
     margin-top: 15px;
     display: flex;
+
+    animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 300ms; /* don't forget to set a duration! */
   }
   
   li p {
     margin: 0;
     padding: 15px;
-    width: 100%;
+    width: 90%;
   }
   
   .btndelete {
@@ -144,6 +166,10 @@ body {
   .empty {
     color: darkslategrey;
     text-align: center;
+
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s;
+    transition: color 500ms;
   }
 
   .creditos{
@@ -152,6 +178,22 @@ body {
       color: rgb(0, 0, 0);
       text-align: center;
     }
+
+  .error{
+    background-color: lightgray;
+    width: 96%;
+    color: rgb(191, 33, 33);
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .animate__animated animate__bounce{
+    display: inline-block;
+    margin: 0 0.5rem;
+
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+  }
 
   @media screen and (max-width: 550px){
       .container{
