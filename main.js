@@ -3,6 +3,7 @@ const addBtn = document.querySelector('.btnadd');
 const ul = document.querySelector('ul');
 const empty = document.querySelector('.empty');
 const message = document.querySelector('.li-container');
+const mode = document.querySelector('i');
 let tasks = [];
 let id = Date.now();
 
@@ -31,8 +32,9 @@ addBtn.addEventListener("click", (e) => {
         
         input.value = "";
         empty.style.display = "none";
+        ul.style.height = "30vh";
     } else {
-        alert("No se pueden crear tareas vacias");
+        Message('','Alto ahi!','No puedes agregar listas vacias');
     }
 });
 
@@ -48,12 +50,13 @@ function DeleteBtn(e) {
         ul.removeChild(task);
         let tasks = JSON.parse( localStorage.getItem('tasks'))
         tasks.splice(e, 1);
+        console.log(tasks)
         localStorage.setItem('tasks', JSON.stringify(tasks));
-        console.log(tasks);
 
         const items = document.querySelectorAll("li");
         if (items.length == 0){
             empty.style.display = "block";
+            ul.style.height = "1vh";
         }
     });
     return deleteBtn;
@@ -73,4 +76,42 @@ function showTasks(){
             empty.style.display = "none";
         });
     });
+}
+
+function Message(icono,titulo,mensaje){
+    Swal.fire({
+        position: 'center',
+        icon: icono,
+        title: titulo,
+        text: mensaje,
+        showConfirmButton: false,
+        showClass: {
+            popup: 'animate__animated animate__shakeX'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__bounceOut'
+          }
+    });
+}
+
+var dark_mode = true;
+
+function darkMode(){
+    if (dark_mode){
+        document.querySelector('.container').style.backgroundColor = "#04293A";
+        document.querySelector('ul').style.backgroundColor = "#04293A";
+        document.querySelector('#toogle').style.color = "white";
+        document.querySelector('h1').style.color = "white";
+        empty.style.color = "white";
+
+        dark_mode = false;
+    } else {
+        document.querySelector('.container').style.backgroundColor = "rgb(255, 255, 255)";
+        document.querySelector('ul').style.backgroundColor = "";
+        document.querySelector('#toogle').style.color = "black";
+        document.querySelector('h1').style.color = "darkslategrey";
+        empty.style.color = "black";
+
+        dark_mode = true;
+    }
 }
